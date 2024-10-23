@@ -7,7 +7,6 @@ const Header = () => {
     const [users, setUsers] = useState([])
     let curentUser = localStorage.getItem("idUsers");
 
-
     const naviGate = useNavigate()
     const goLogin = () => {
         naviGate("/login")

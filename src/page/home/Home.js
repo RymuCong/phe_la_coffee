@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import HomeFeature from "./HomeFeature";
 import BestsellerProducts from "./BestsellerProducts";
 import TopNews from "./TopNews";
+import Address from "../../components/Address/Address";
 
 const Home = () => {
 return (
@@ -13,6 +14,7 @@ return (
         <HomeFeature></HomeFeature>
         <BestsellerProducts></BestsellerProducts>
         <TopNews></TopNews>
+        <Address></Address>
         <Footer></Footer>
     </div>
 );

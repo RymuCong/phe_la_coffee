@@ -7,12 +7,12 @@ const HomeFeature = () => {
                     <div style={{
                         width: 400,
                         justifyContent: "start",
-                        fontFamily: "'Arial', serif", // Set the font family
-                        fontSize: "16px", // Adjust font size
-                        lineHeight: "1.6", // Adjust line height for better readability
-                        textAlign: "justify" // Justify the text
+                        fontFamily: "'Arial', serif",
+                        fontSize: "16px",
+                        lineHeight: "1.6",
+                        textAlign: "justify"
                     }}>
-                        <h3 style={{marginBottom: "20px"}}>CÂU CHUYỆN THƯƠNG HIỆU</h3>
+                        <h3 style={{marginBottom: "20px", marginTop: "20%"}}>CÂU CHUYỆN THƯƠNG HIỆU</h3>
                         <p>
                             Nốt Hương Đặc Sản - Phê La luôn trân quý, nâng niu những giá trị
                             Nguyên Bản ở mỗi vùng đất mà chúng tôi đi qua, nơi tâm hồn được đồng
@@ -31,14 +31,14 @@ const HomeFeature = () => {
                     />
 
                     <div style={{
-                        width: 300,
+                        width: 400,
                         justifyContent: "start",
                         fontFamily: "'Arial', serif",
                         fontSize: "16px",
                         lineHeight: "1.6",
                         textAlign: "justify"
                     }}>
-                        <h3>NGUYÊN LIỆU ĐẶC SẢN</h3>
+                        <h3 style={{marginBottom: "20px", marginTop: "20%"}}>NGUYÊN LIỆU ĐẶC SẢN</h3>
                         <p>
                             Trà Ô Long đặc sản tại Phê La còn được ươm trồng với phương pháp chăm
                             bón hữu cơ, hoàn toàn với trứng gà, đậu nành và thu hái thủ công để có
