@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import formatPriceToVND from "../../utils/formatPrice";
 import './home.css';
+import { handleGetData } from "../../service/drinks";
 
 const BestsellerProducts = () => {
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
-        const response = await fetch("https://671761aeb910c6a6e027d0ee.mockapi.io/drinks");
-        const data = await response.json();
-        setProducts(data.slice(0, 6)); // Limit to 6 products
+        const response = await handleGetData();
+        const syphonProducts = response.find(category => category.category === "FRENCH PRESS").products.slice(0, 6);
+        setProducts(syphonProducts);
     };
 
     useEffect(() => {
@@ -18,15 +18,15 @@ const BestsellerProducts = () => {
     return (
         <div>
             <div className="bestseller-container">
-                <h1>Sản Phẩm Nổi Bật</h1>
+                <h1>CÁC DÒNG SẢN PHẨM NỔI BẬT</h1>
             </div>
             <div className="bestseller-products">
                 {products.map((product) => (
-                    <div className="card bestseller-card" key={product.id}>
-                        <img src={product.image} alt={product.title} />
+                    <div className="card bestseller-card" key={product.name}>
+                        <img src={product.image} alt={product.name} />
                         <div className="bestseller-card-content">
-                            <h3>{product.title}</h3>
-                            <p>{formatPriceToVND(product.price * 23000)}</p>
+                            <h3>{product.name}</h3>
+                            <p>{product.price}</p>
                             <button className="bestseller-button">CHI TIẾT</button>
                         </div>
                     </div>

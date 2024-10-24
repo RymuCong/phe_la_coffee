@@ -28,6 +28,10 @@
     transition: transform 0.3s ease-in-out; /* Smooth transform effect */
 }
 
+.product-card a {
+    text-decoration: none !important;
+}
+
 .product-card:hover {
     transform: scale(1.05); /* Slightly enlarge card on hover */
 }
@@ -37,7 +41,7 @@
     object-fit: cover;
 }
 
-/* Product title and category styling */
+/* Produdct title and category styling */
 .product-info {
     text-align: center; /* Center align the text */
 }

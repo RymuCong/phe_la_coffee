@@ -14,18 +14,18 @@ const TopNews = () => {
     return (
             <div className="row">
                 <div className="title_item">
-                    <h2 className="product-title"><span>TIN TỨC NỔI BẬT</span></h2>
+                    <h1 className="product-title">TIN TỨC NỔI BẬT</h1>
                 </div>
                 <div className="product-container">
                     {news.map(item => (
                         <div className="product-card" key={item.id}>
-                            <a href={item.url} title={item.title}>
+                            <a title={item.title}>
                                 <img className="product-image" src={item.image} alt={item.title} style={{width: "350px", height: "250px"}}/>
                             </a>
                             <div className="product-info">
                                 <a className="product-title" title={item.title}>{item.title}</a>
                                 <p className="description">{item.description}</p>
-                                <a href={item.url} className="product-button"> Đọc tiếp </a>
+                                <a className="product-button"> Đọc tiếp </a>
                             </div>
                         </div>
                     ))}
