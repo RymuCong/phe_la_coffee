@@ -13,9 +13,7 @@ const TopNews = () => {
 
     return (
             <div className="row">
-                <div className="title_item">
-                    <h1 className="product-title">TIN TỨC NỔI BẬT</h1>
-                </div>
+                <h2>TIN TỨC NỔI BẬT</h2>
                 <div className="product-container">
                     {news.map(item => (
                         <div className="product-card" key={item.id}>
