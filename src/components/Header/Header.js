@@ -23,7 +23,7 @@ const Header = () => {
             <div className="header__nav">
                 <p><NavLink to={"/"}>TRANG CHỦ</NavLink></p>
                 <p><NavLink to={"/product"}>SẢN PHẨM</NavLink></p>
-                <p><NavLink to={"/infor"}>GIỚI THIỆU</NavLink></p>
+                <p><NavLink to={"/about-us"}>GIỚI THIỆU</NavLink></p>
                 <p><a href="">LIÊN HỆ</a></p>
             </div>
             <div className="header__user">
