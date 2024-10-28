@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import './home.css';
-import { handleGetData } from "../../service/drinks";
+import {handleGetDataHomePage} from "../../service/store";
 
 const BestsellerProducts = () => {
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
-        const response = await handleGetData();
-        const syphonProducts = response.find(category => category.category === "FRENCH PRESS").products.slice(0, 6);
-        setProducts(syphonProducts);
+        const response = await handleGetDataHomePage();
+        const bestsellerProducts = response.find(name => name.name === "top-products").data;
+        console.log(bestsellerProducts);
+        setProducts(bestsellerProducts);
     };
 
     useEffect(() => {

@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./topnews.css";
+import {handleGetDataHomePage} from "../../service/store";
 
 const TopNews = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        fetch("https://671761aeb910c6a6e027d0ee.mockapi.io/news")
-            .then(response => response.json())
-            .then(data => setNews(data))
-            .catch(error => console.error("Error fetching news:", error));
+        const fetchNews = async () => {
+            try {
+                const data = await handleGetDataHomePage();
+                const newsData = data.find(name => name.name === "news").data;
+                setNews(newsData);
+            } catch (error) {
+                console.error("Error fetching news:", error);
+            }
+        };
+
+        fetchNews();
     }, []);
 
     return (
