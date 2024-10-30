@@ -19,12 +19,12 @@ const Header = () => {
     }, [])
     return (
         <div className='header'>
-            <img onClick={goHome} className='header__logo' width={80} height={40} src={logo}/>
+            <img onClick={goHome} className='header__logo' width={80} height={40} src={logo} alt={'Header Logo'}/>
             <div className="header__nav">
                 <p><NavLink to={"/"}>TRANG CHỦ</NavLink></p>
                 <p><NavLink to={"/product"}>SẢN PHẨM</NavLink></p>
                 <p><NavLink to={"/about-us"}>GIỚI THIỆU</NavLink></p>
-                <p><a href="">LIÊN HỆ</a></p>
+                <p><NavLink to={"/contact-us"}>LIÊN HỆ</NavLink></p>
             </div>
             <div className="header__user">
                 <a className='header--icon'><img onClick={goLogin} width={50} height={50}

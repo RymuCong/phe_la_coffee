@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './AboutUs.css';
 import Header from "../../components/Header/Header";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {handleGetDataHomePage} from "../../service/store";
+import Footer from "../../components/Footer/Footer";
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const AboutUs = () => {
 
@@ -34,6 +36,7 @@ const AboutUs = () => {
                 <Achievements/>
                 <Timeline timelineData={timelineData}/>
             </div>
+            <Footer/>
         </div>
     );
 };
@@ -210,6 +213,8 @@ const AchievementItem = ({imgSrc, title, description}) => (
 );
 
 const Timeline = ({ timelineData}) => {
+    const sliderRef = useRef(null);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -223,7 +228,13 @@ const Timeline = ({ timelineData}) => {
     return (
         <div className="timeline_phela">
             <h4 style={{textAlign: 'center'}}>Những dấu ấn trong hành trình của chúng tôi</h4>
-            <Slider {...settings}>
+            <button className="prev-button" onClick={() => sliderRef.current.slickPrev()}>
+                <FaArrowLeft/>
+            </button>
+            <button className="next-button" onClick={() => sliderRef.current.slickNext()}>
+                <FaArrowRight/>
+            </button>
+            <Slider ref={sliderRef} {...settings}>
                 {timelineData.map((item, index) => (
                     <TimelineItem
                         key={index}
@@ -238,7 +249,7 @@ const Timeline = ({ timelineData}) => {
     );
 };
 
-const TimelineItem = ({ image, date, title, description }) => (
+const TimelineItem = ({image, date, title, description}) => (
     <div className="timeline-item">
         <div className="img">
             <img src={image} alt="" className="timeline_img"/>

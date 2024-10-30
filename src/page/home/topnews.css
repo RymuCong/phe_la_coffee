@@ -80,6 +80,5 @@
     height: 74px; /* Fixed height for uniform text block */
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px;
 }

@@ -251,6 +251,7 @@ body {
 .achievement-item h5 {
     color: #000000;
     margin: 10px 0;
+    font-weight: 700 !important;
 }
 
 .achievement-item p {
@@ -280,7 +281,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 20px;
-    padding: 20px;
     background-color: #f0f0f0;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -344,4 +344,36 @@ body {
     color: #5c4a3d; /* Adjust text color */
     font-weight: bold;
     font-family: 'Arial', sans-serif; /* Adjust font family */
+}
+
+.timeline_phela {
+    position: relative;
+    padding: 0 50px;
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0);
+    color: #000000;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.prev-button {
+    left: -30px;
+}
+
+.next-button {
+    right: -30px;
+}
+
+.prev-button:hover, .next-button:hover {
+    background-color: #a4590a;
+    color: white;
 }
