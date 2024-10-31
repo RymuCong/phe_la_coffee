@@ -7,11 +7,12 @@ const ContactUs = () => {
     return (
         <div>
             <Header/>
-            <Info/>
-            <ContactForm/>
+            <div className="contact-us">
+                <Info/>
+                <ContactForm/>
+            </div>
             <Footer/>
         </div>
-
     );
 };
 

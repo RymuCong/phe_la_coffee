@@ -1,15 +1,15 @@
-.info {
+.contact-us {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.form-info {
+.contact-us .form-info {
     width: 100%;
     padding: 60px 0;
     position: relative
 }
 
-.form-info h2 {
+.contact-us .form-info h2 {
     font-style: normal;
     font-family: K2D-SemiBold, serif;
     font-size: 28px;
@@ -22,13 +22,13 @@
     font-weight: 500 !important ;
 }
 
-.item {
+.contact-us .item {
     display: flex;
     align-items: flex-start;
     margin-bottom: 25px;
 }
 
-.icon {
+.contact-us .icon {
     overflow: hidden;
     position: absolute;
     left: 0;
@@ -41,13 +41,13 @@
     align-items: center;
 }
 
-.text {
+.contact-us .text {
     text-align: left;  /* Đã sửa thành căn trái */
     max-width: 800px;
     padding-left: 60px;
 }
 
-.text p {
+.contact-us .text p {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -56,7 +56,7 @@
     margin-bottom: 0 !important;
 }
 
-.text strong {
+.contact-us .text strong {
     font-size: 16px;
     color: #333;
     font-weight: 600;
@@ -65,16 +65,16 @@
 }
 
 /* Điều chỉnh khoảng cách cho địa chỉ */
-.text p:not(:last-child) {
+.contact-us .text p:not(:last-child) {
     margin-bottom: 5px;
 }
 
 /* Set background color of images to black */
-img {
+.contact-us .contact-us img {
     background-color: black;
 }
 
-.contact-form-container {
+.contact-us .contact-form-container {
     max-width: 1200px;
     padding: 40px 20px;
     background: #fff;
@@ -90,18 +90,18 @@ h2 {
     margin-bottom: 15px;
 }
 
-.form-description {
+.contact-us .form-description {
     color: #666;
     font-size: 14px;
     margin-bottom: 30px;
 }
 
-.form-group {
+.contact-us .form-group {
     margin-bottom: 20px;
 }
 
-.form-input,
-.form-textarea {
+.contact-us .form-input,
+.contact-us .form-textarea {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #e0e0e0;
@@ -112,24 +112,24 @@ h2 {
     transition: border-color 0.3s ease;
 }
 
-.form-input:focus,
-.form-textarea:focus {
+.contact-us .form-input:focus,
+.contact-us .form-textarea:focus {
     outline: none;
     border-color: #C5977C;
 }
 
-.form-textarea {
+.contact-us .form-textarea {
     min-height: 150px;
     resize: vertical;
 }
 
-.error-message {
+.contact-us .error-message {
     color: #dc3545;
     font-size: 12px;
     margin-top: 5px;
 }
 
-.submit-button {
+.contact-us .submit-button {
     width: 100%;
     padding: 12px;
     background: #C5977C;
@@ -141,11 +141,11 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-.submit-button:hover {
+.contact-us .submit-button:hover {
     background: #b38468;
 }
 
-.submit-button:disabled {
+.contact-us .submit-button:disabled {
     background: #cccccc;
     cursor: not-allowed;
 }
