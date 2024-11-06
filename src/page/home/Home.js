@@ -8,7 +8,7 @@ import Address from "../../components/Address/Address";
 
 const Home = () => {
 return (
-    <div>
+    <div className="home-page">
         <Header></Header>
         <Banner></Banner>
         <HomeFeature></HomeFeature>

@@ -82,3 +82,15 @@
 .bestseller-button:hover {
     background-color: #b89c8b; /* Adjust hover color */
 }
+
+.home-page h2 {
+    padding: 0 10px 10px 10px;
+    color: #222222;
+    position: relative;
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+}

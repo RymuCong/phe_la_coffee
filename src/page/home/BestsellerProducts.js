@@ -19,7 +19,7 @@ const BestsellerProducts = () => {
     return (
         <div>
             <div className="bestseller-container">
-                <h1>CÁC DÒNG SẢN PHẨM NỔI BẬT</h1>
+                <h2>CÁC DÒNG SẢN PHẨM NỔI BẬT</h2>
             </div>
             <div className="bestseller-products">
                 {products.map((product) => (

@@ -34,9 +34,10 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.banner_text h1 {
+.banner_text h2 {
     font-size: 3em;
     margin: 0;
+    color: white;
 }
 
 .banner_text h4 {

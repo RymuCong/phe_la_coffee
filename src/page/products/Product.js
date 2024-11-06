@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
 import "./Product.css";
 import { handleGetData } from "../../service/drinks";
 import ProductModal from "./modal/ProductModal";
+import {CartContext} from "../../context/CartContext";
 
 const Product = () => {
     const [modalShow, setModalShow] = useState(false);
     const [prdDetail, setPrdDetail] = useState();
     const [data, setData] = useState([]);
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,8 +41,8 @@ const Product = () => {
 
     return (
         <div>
-            <Header></Header>
-            <Banner></Banner>
+            <Header/>
+            <Banner/>
             <div className="product">
                 <div className="product__Nav">
                     <p>
@@ -322,7 +324,7 @@ const Product = () => {
                 onHide={() => setModalShow(false)}
                 prdDetail={prdDetail}
             />
-            <Footer></Footer>
+            <Footer/>
         </div>
     );
 }
