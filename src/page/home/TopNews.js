@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./topnews.css";
-import {handleGetDataHomePage} from "../../service/store";
+import {handleGetDataHomePage} from "../../service/drinks";
 
 const TopNews = () => {
     const [news, setNews] = useState([]);

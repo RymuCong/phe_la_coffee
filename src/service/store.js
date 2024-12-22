@@ -1,6 +1,15 @@
-import axios from "axios";
+import { create } from 'zustand';
+import axios from 'axios';
 
-export const handleGetDataHomePage = async () => {
-    const res = await axios.get("https://671761aeb910c6a6e027d0ee.mockapi.io/news");
-    return res.data;
-};
+const useStore = create((set) => ({
+    products: [],
+    cart: [],
+    fetchProducts: async () => {
+        const response = await axios.get('https://6767bedb560fbd14f18e4955.mockapi.io/drink_detail');
+        set({ products: response.data });
+    },
+    addToCart: (product) => set((state) => ({ cart: [...state.cart, product] })),
+    getProductById: (id) => (state) => state.products.find(product => product.id === parseInt(id)),
+}));
+
+export default useStore;

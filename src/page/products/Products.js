@@ -2,12 +2,12 @@ import React, {useContext, useEffect, useState} from "react";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
-import "./Product.css";
+import "./Products.css";
 import { handleGetData } from "../../service/drinks";
 import ProductModal from "./modal/ProductModal";
 import {CartContext} from "../../context/CartContext";
 
-const Product = () => {
+const Products = () => {
     const [modalShow, setModalShow] = useState(false);
     const [prdDetail, setPrdDetail] = useState();
     const [data, setData] = useState([]);
@@ -329,4 +329,4 @@ const Product = () => {
     );
 }
 
-export default Product;
+export default Products;

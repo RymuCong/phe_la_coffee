@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import './home.css';
-import {handleGetDataHomePage} from "../../service/store";
+import useStore from '../../service/store';
 
 const BestsellerProducts = () => {
-    const [products, setProducts] = useState([]);
-
-    const getProducts = async () => {
-        const response = await handleGetDataHomePage();
-        const bestsellerProducts = response.find(name => name.name === "top-products").data;
-        console.log(bestsellerProducts);
-        setProducts(bestsellerProducts);
-    };
+    const navigate = useNavigate();
+    const fetchProducts = useStore((state) => state.fetchProducts);
+    const products = useStore((state) => state.products);
 
     useEffect(() => {
-        getProducts();
-    }, []);
+        fetchProducts();
+    }, [fetchProducts]);
+
+    const handleProductClick = (id) => {
+        navigate(`/product/${id}`);
+    };
 
     return (
         <div>
@@ -23,12 +23,12 @@ const BestsellerProducts = () => {
             </div>
             <div className="bestseller-products">
                 {products.map((product) => (
-                    <div className="card bestseller-card" key={product.name}>
+                    <div className="card bestseller-card" key={product.id}>
                         <img src={product.image} alt={product.name} />
                         <div className="bestseller-card-content">
                             <h3>{product.name}</h3>
                             <p>{product.price}</p>
-                            <button className="bestseller-button">CHI TIẾT</button>
+                            <button className="bestseller-button" onClick={() => handleProductClick(product.id)}>CHI TIẾT</button>
                         </div>
                     </div>
                 ))}
