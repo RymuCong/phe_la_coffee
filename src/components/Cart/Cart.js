@@ -1,14 +1,13 @@
 import React from 'react';
 import './Cart.css';
 import useStore from '../../service/store';
-
-const formatPrice = (price) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-};
+import {useNavigate} from "react-router-dom";
+import {formatPrice} from "../../utils/FormatPrice";
 
 const Cart = () => {
     const cart = useStore((state) => state.cart);
     const totalPrice = useStore((state) => state.totalPrice());
+    const navigate = useNavigate();
 
     return (
         <div className="cart-dropdown">
@@ -18,19 +17,21 @@ const Cart = () => {
                 <>
                     {cart.map(item => (
                         <div key={item.id} className="cart-item">
-                            <img src={item.image} alt={item.name} className="cart-item__image" />
+                            <img src={item.image} alt={item.name} className="cart-item__image"/>
                             <div className="cart-item__details">
                                 <p className="item-name">{item.name}</p>
                                 <p className="item-quantity">Số lượng: {item.quantity}</p>
                             </div>
-                            <button className="cart-item__remove" onClick={() => useStore.getState().removeFromCart(item.id)}>
+                            <button className="cart-item__remove"
+                                    onClick={() => useStore.getState().removeFromCart(item.id)}>
                                 &#10005;
                             </button>
                         </div>
                     ))}
                     <div className="cart-total">
-                        <p>Tổng giá: {formatPrice(totalPrice)} VND</p>
+                        <p>Tổng giá: {formatPrice(totalPrice)} VNĐ</p>
                     </div>
+                    <button className="checkout-button" onClick={() => navigate('/checkout')}>Checkout</button>
                 </>
             )}
         </div>

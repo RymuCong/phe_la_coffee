@@ -33,6 +33,9 @@ const useStore = create((set, get) => ({
     getProductById: (id) => (state) => state.products.find(product => product.id === parseInt(id)),
     totalQuantity: () => get().cart.reduce((total, item) => total + item.quantity, 0),
     totalPrice: () => get().cart.reduce((total, item) => total + (item.price * item.quantity), 0),
+    updateQuantity: (id, quantity) => set((state) => ({
+        cart: state.cart.map(item => item.id === id ? { ...item, quantity: Math.max(0, quantity) } : item)
+    })),
 }));
 
 export default useStore;
