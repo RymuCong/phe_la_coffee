@@ -1,21 +1,23 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../../assets/images/phela.png';
 import "./Header.css";
 import { NavLink, useNavigate } from 'react-router-dom';
 import Cart from "../Cart/Cart";
-import {CartContext} from "../../context/CartContext";
+import useStore from '../../service/store';
+
+// Utility function to format the price with dots as thousand separators
+const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+};
 
 const Header = () => {
     const [showCart, setShowCart] = useState(false);
     const navigate = useNavigate();
-    const { cart, setCart, totalQuantity } = useContext(CartContext);
+    const cart = useStore((state) => state.cart);
+    const totalQuantity = useStore((state) => state.totalQuantity());
 
     const goHome = () => {
         navigate("/");
-    };
-
-    const removeFromCart = (id) => {
-        setCart(cart.filter(item => item.id !== id));
     };
 
     useEffect(() => {
@@ -37,14 +39,12 @@ const Header = () => {
                 onMouseLeave={() => setShowCart(false)}
             >
                 <p className='header--icon'>
-                    <img width={70} height={50}
-                        src="https://cdn.icon-icons.com/icons2/1182/PNG/96/1490129392-rounded28_82189.png"
-                         alt=""/>
+                    <img width={70} height={50} src="https://cdn.icon-icons.com/icons2/1182/PNG/96/1490129392-rounded28_82189.png" alt=""/>
+                    {totalQuantity > 0 && <span className='header--count'>{totalQuantity}</span>}
                 </p>
-                <p className='header--count'>{totalQuantity}</p>
                 {showCart && (
                     <div className="header__cart-dropdown">
-                        <Cart cart={cart} removeFromCart={removeFromCart} />
+                        <Cart />
                     </div>
                 )}
             </div>

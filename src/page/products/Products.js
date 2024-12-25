@@ -1,17 +1,15 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
 import "./Products.css";
 import { handleGetData } from "../../service/drinks";
 import ProductModal from "./modal/ProductModal";
-import {CartContext} from "../../context/CartContext";
 
 const Products = () => {
     const [modalShow, setModalShow] = useState(false);
     const [prdDetail, setPrdDetail] = useState();
     const [data, setData] = useState([]);
-    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const fetchData = async () => {

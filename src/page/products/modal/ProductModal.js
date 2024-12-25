@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, {useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ProductModal.css';
-import { CartContext } from '../../../context/CartContext';
+import useStore from '../../../service/store';
 
 export default function ProductModal(props) {
   const [quantities, setQuantities] = useState({});
-  const { addToCart } = useContext(CartContext);
+  const addToCart = useStore((state) => state.addToCart);
 
   const incrementQuantity = (productId) => {
     setQuantities(prevQuantities => ({
@@ -29,11 +29,15 @@ export default function ProductModal(props) {
 
   const handleBuyNow = () => {
     const quantity = quantities[props.prdDetail.id] || 0;
-    addToCart({ ...props.prdDetail, quantity });
-    setQuantities(prevQuantities => ({
-      ...prevQuantities,
-      [props.prdDetail.id]: 0
-    }));
+    if (quantity > 0) {
+      for (let i = 0; i < quantity; i++) {
+        addToCart({ ...props.prdDetail, quantity: 1 });
+      }
+      setQuantities(prevQuantities => ({
+        ...prevQuantities,
+        [props.prdDetail.id]: 0
+      }));
+    }
   };
 
   return (

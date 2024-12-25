@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Card, CardMedia, CardContent, Typography, Button } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 import useStore from '../../service/store';
 import './Product.css';
@@ -27,7 +26,7 @@ export const Product = () => {
             <Header/>
             <div className="productDetail">
                 <div className="breadcrumb">
-                    <span>Phela &gt; Sản phẩm &gt; {product.name}</span>
+                    <span>Sản phẩm &gt; {product.name}</span>
                 </div>
                 <div className="productLayout">
                     <div className="media">
