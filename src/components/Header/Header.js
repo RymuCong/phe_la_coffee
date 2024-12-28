@@ -5,15 +5,10 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Cart from "../Cart/Cart";
 import useStore from '../../service/store';
 
-// Utility function to format the price with dots as thousand separators
-const formatPrice = (price) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-};
-
 const Header = () => {
     const [showCart, setShowCart] = useState(false);
+    const [showNav, setShowNav] = useState(false);
     const navigate = useNavigate();
-    const cart = useStore((state) => state.cart);
     const totalQuantity = useStore((state) => state.totalQuantity());
 
     const goHome = () => {
@@ -24,10 +19,15 @@ const Header = () => {
         window.scrollTo({ top: 0 });
     }, []);
 
+    const toggleNav = () => {
+        setShowNav(!showNav);
+    };
+
     return (
         <div className='header'>
             <img onClick={goHome} className='header__logo' width={80} height={40} src={logo} alt={'Header Logo'} />
-            <div className="header__nav">
+            <button className="menu-button" onClick={toggleNav}>&#9776;</button>
+            <div className={`header__nav ${showNav ? 'show' : ''}`}>
                 <p><NavLink to={"/"}>TRANG CHỦ</NavLink></p>
                 <p><NavLink to={"/product"}>SẢN PHẨM</NavLink></p>
                 <p><NavLink to={"/about-us"}>GIỚI THIỆU</NavLink></p>

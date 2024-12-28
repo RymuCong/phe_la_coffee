@@ -1,0 +1,37 @@
+.home-feature {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.home-feature__title {
+    text-align: center;
+    height: 100px;
+}
+
+.home-feature__content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.home-feature__text {
+    width: 400px;
+    justify-content: start;
+    font-family: 'Arial', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 10%;
+}
+
+.home-feature__image {
+    width: 400px;
+}
+
+@media (max-width: 768px) {
+    .home-feature__text, .home-feature__image {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

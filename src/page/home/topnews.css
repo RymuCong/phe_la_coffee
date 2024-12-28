@@ -1,4 +1,8 @@
-/* Container for the product cards */
+.row h2 {
+    text-align: center;
+    height: 100px;
+}
+
 .product-container {
     display: flex;
     flex-wrap: wrap;
@@ -16,16 +20,15 @@
     color: #333;
 }
 
-/* Individual product card styling */
 .product-card {
     width: 30%;
-    height: 450px;
+    height: 500px;
     margin: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Ensures nothing spills out */
-    background-color: #fff; /* White background for each card */
-    transition: transform 0.3s ease-in-out; /* Smooth transform effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
 }
 
 .product-card a {
@@ -33,20 +36,22 @@
 }
 
 .product-card:hover {
-    transform: scale(1.05); /* Slightly enlarge card on hover */
+    transform: scale(1.05);
 }
 
-/* Image styling within the card */
 .product-image {
+    padding-top: 10px;
+    width: 100%;
+    height: 250px;
     object-fit: cover;
 }
 
-/* Produdct title and category styling */
 .product-info {
-    text-align: center; /* Center align the text */
+    text-align: center;
 }
 
 .product-title {
+    display: block; /* Ensure title is displayed as block elements */
     font-size: 16px;
     color: #333;
     margin: 20px 0;
@@ -58,7 +63,6 @@
     color: #333;
 }
 
-/* Button styling */
 .product-button {
     background-color: #b7866a;
     color: white;
@@ -77,8 +81,27 @@
 .description {
     font-size: 16px;
     color: #666;
-    height: 74px; /* Fixed height for uniform text block */
+    height: 74px;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 20px;
+}
+
+.product-card .tags {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    padding: 3px 15px;
+    background: #73ccc6;
+    margin: 10px 20px;
+    font-weight: normal;
+    width: fit-content;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: 100%;
+        margin: 10px 0;
+    }
 }

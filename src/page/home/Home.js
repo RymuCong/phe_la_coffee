@@ -5,8 +5,23 @@ import HomeFeature from "./HomeFeature";
 import BestsellerProducts from "./BestsellerProducts";
 import TopNews from "./TopNews";
 import Address from "../../components/Address/Address";
+import {useEffect, useState} from "react";
+import Preloader from "../../components/Preloader/Preloader";
 
 const Home = () => {
+
+const [loading, setLoading] = useState(true);
+
+        useEffect(() => {
+                setTimeout(() => {
+                        setLoading(false);
+                }, 300);
+        }, []);
+
+        if (loading) {
+                return <Preloader />;
+        }
+
 return (
     <div className="home-page">
         <Header></Header>

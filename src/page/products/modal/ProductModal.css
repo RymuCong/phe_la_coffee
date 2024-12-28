@@ -71,3 +71,27 @@ button[variant="primary"]:hover {
 button[variant="primary"]:focus {
   outline: none;
 }
+
+.close-button {
+  margin-left: auto;
+  display: block;
+  background-color: #b85c38;
+  border-color: #e5581e;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-button:hover {
+  background-color: #6c2a0e;
+  border-color: #e5581e;
+}
+
+.close-button:focus {
+  outline: none;
+}

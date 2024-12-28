@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import useStore from '../../service/store';
 import './Product.css';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import BestsellerProducts from "../home/BestsellerProducts";
+import Preloader from "../../components/Preloader/Preloader";
 
 export const Product = () => {
     const { id } = useParams();
@@ -18,7 +19,7 @@ export const Product = () => {
     }, [fetchProducts]);
 
     if (!product) {
-        return <div>Loading...</div>;
+        return <Preloader/>;
     }
 
     return (

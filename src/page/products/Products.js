@@ -5,16 +5,19 @@ import Footer from "../../components/Footer/Footer";
 import "./Products.css";
 import { handleGetData } from "../../service/drinks";
 import ProductModal from "./modal/ProductModal";
+import Preloader from "../../components/Preloader/Preloader";
 
 const Products = () => {
     const [modalShow, setModalShow] = useState(false);
     const [prdDetail, setPrdDetail] = useState();
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await handleGetData();
             setData(result);
+            setLoading(false);
         };
         fetchData();
         window.scrollTo({ top: 850 });
@@ -36,6 +39,10 @@ const Products = () => {
         let obj = allProducts.find(product => product.id === id);
         setPrdDetail({ ...obj });
     };
+
+    if (loading) {
+        return <Preloader />;
+    }
 
     return (
         <div>

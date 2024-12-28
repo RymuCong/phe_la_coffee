@@ -7,19 +7,19 @@
 .header {
     position: sticky;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: 60px;
     display: flex;
     justify-content: space-between;
     background-color: rgb(0, 0, 0);
     z-index: 1000;
+    padding: 0 20px;
 }
 
 .header__logo {
-    margin-left: 200px;
     margin-top: 10px;
+    cursor: pointer;
 }
-
 
 .header h1 {
     padding-top: 50px;
@@ -35,25 +35,12 @@
     font-family: 'K2D-SemiBold', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/*.header--count {*/
-/*    text-align: center;*/
-/*    margin-left: -78px;*/
-/*    margin-top: 20px;*/
-/*    width: 20px;*/
-/*    height: 20px;*/
-/*    border-radius: 50%;*/
-/*    color: rgb(189, 185, 172);*/
-/*    font-weight: 800;*/
-/*}*/
-
 .header__user {
     position: relative;
     display: flex;
     align-items: center;
-    /*width: 10%;*/
     justify-content: space-evenly;
     margin-top: 10px;
-    margin-right: 20px;
 }
 
 .header--count {
@@ -97,4 +84,49 @@
     z-index: 1000;
     width: 300px;
     padding: 10px;
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgb(0, 0, 0);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .header__nav.show {
+        display: flex;
+    }
+
+    .header__logo {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .header__user {
+        order: 2;
+    }
+
+    .menu-button {
+        display: block;
+        order: 1;
+    }
 }

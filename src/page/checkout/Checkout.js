@@ -19,6 +19,8 @@ import {
 } from "mdb-react-ui-kit";
 import {FaMinus, FaPlus, FaTrash} from 'react-icons/fa';
 import {formatPrice} from "../../utils/FormatPrice";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Checkout = () => {
     const cart = useStore((state) => state.cart);
@@ -40,7 +42,19 @@ const Checkout = () => {
     });
 
     const handleQuantityChange = (id, quantity) => {
-        updateQuantity(id, quantity);
+        if (quantity <= 10) {
+            updateQuantity(id, quantity);
+        } else {
+            toast.error('Max quantity for a product is 10', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
     };
 
     const handleRemoveItem = (id) => {
@@ -48,6 +62,20 @@ const Checkout = () => {
     };
 
     const handleSubmit = (values, { setSubmitting }) => {
+        const hasInvalidQuantity = cart.some(item => item.quantity > 10);
+        if (hasInvalidQuantity) {
+            toast.error('Max quantity for a product is 10', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setSubmitting(false);
+            return;
+        }
         alert('Checkout successful!');
         navigate('/');
         setSubmitting(false);
@@ -57,6 +85,7 @@ const Checkout = () => {
         <div>
             <Header/>
             <div className="checkout">
+                <ToastContainer />
                 <section className="h-100">
                     <MDBContainer className="py-5 h-100">
                         <MDBRow className="justify-content-center align-items-center h-100">
@@ -72,16 +101,16 @@ const Checkout = () => {
                                             <p className="lead fw-normal mb-2"></p>
                                         </MDBCol>
                                         <MDBCol md="3" lg="3" xl="3">
-                                            <p className="lead fw-normal mb-2">Tên sản phẩm</p>
+                                            <h5 className="lead fw-normal mb-2">Tên sản phẩm</h5>
                                         </MDBCol>
                                         <MDBCol md="3" lg="3" xl="2">
-                                            <p className="lead fw-normal mb-2">Số lượng</p>
+                                            <h5 className="lead fw-normal mb-2">Số lượng</h5>
                                         </MDBCol>
                                         <MDBCol md="3" lg="2" xl="2" className="offset-lg-1">
-                                            <p className="lead fw-normal mb-2">Giá</p>
+                                            <h5 className="lead fw-normal mb-2">Giá</h5>
                                         </MDBCol>
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
-                                            <p className="lead fw-normal mb-2"></p>
+                                            <h5 className="lead fw-normal mb-2"></h5>
                                         </MDBCol>
                                     </MDBRow>
                                 </MDBCard>

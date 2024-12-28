@@ -1,23 +1,31 @@
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import './home.css';
 import useStore from '../../service/store';
+import Preloader from "../../components/Preloader/Preloader";
 
 const BestsellerProducts = () => {
     const navigate = useNavigate();
     const fetchProducts = useStore((state) => state.fetchProducts);
     const products = useStore((state) => state.products);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         fetchProducts();
     }, [fetchProducts]);
 
     const handleProductClick = (id) => {
-        navigate(`/product/${id}`);
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            navigate(`/product/${id}`);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 300);
     };
 
     return (
         <div>
+            {loading && <Preloader />}
             <div className="bestseller-container">
                 <h2>CÁC DÒNG SẢN PHẨM NỔI BẬT</h2>
             </div>

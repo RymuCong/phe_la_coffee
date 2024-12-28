@@ -12,15 +12,15 @@
 }
 
 .banner__bn1 {
-    background-image: url(https://phela.vn/wp-content/uploads/2023/05/banner-1-1.jpg);
+    background-image: url(https://phela.vn/wp-content/uploads/2024/10/COVER-FB-scaled.jpg);
 }
 
 .banner__bn2 {
-    background-image: url(https://phela.vn/wp-content/uploads/2024/10/BANNER-WEB-8399x1773-1-scaled.jpg);
+    background-image: url(https://phela.vn/wp-content/uploads/2023/05/COVER-FACEBOOK-scaled.jpg);
 }
 
 .banner__bn3 {
-    background-image: url(	https://phela.vn/wp-content/uploads/2021/10/COVER-SI-MO-scaled.jpg);
+    background-image: url(https://phela.vn/wp-content/uploads/2021/10/COVER-SI-MO-scaled.jpg);
 }
 
 .banner__bn4 {
@@ -29,4 +29,16 @@
 
 .banner__bn5 {
     background-image: url(https://phela.vn/wp-content/uploads/2021/07/banner-web-.jpg);
+}
+
+@media (max-width: 768px) {
+    .banner__slide {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner__slide {
+        height: 250px;
+    }
 }
