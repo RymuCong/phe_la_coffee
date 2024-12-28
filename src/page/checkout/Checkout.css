@@ -95,4 +95,7 @@
     .contact-form-container {
         padding: 20px;
     }
+    .hide-768px {
+        display: none;
+    }
 }
