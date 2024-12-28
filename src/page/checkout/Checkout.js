@@ -41,11 +41,11 @@ const Checkout = () => {
         phone: Yup.string().required('Vui lòng nhập số điện thoại')
     });
 
-    const handleQuantityChange = (id, quantity) => {
+    const handleQuantityChange = (id, quantity, name) => {
         if (quantity <= 10) {
             updateQuantity(id, quantity);
         } else {
-            toast.error('Max quantity for a product is 10', {
+            toast.error(`Số lượng tối đa cho ${name} là 10`, {
                 position: "top-right",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -64,21 +64,23 @@ const Checkout = () => {
     const handleSubmit = (values, { setSubmitting }) => {
         const hasInvalidQuantity = cart.some(item => item.quantity > 10);
         if (hasInvalidQuantity) {
-            toast.error('Max quantity for a product is 10', {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
             setSubmitting(false);
             return;
         }
-        alert('Checkout successful!');
-        navigate('/');
-        setSubmitting(false);
+        toast.success('Đặt hàng thành công!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        useStore.getState().clearCart();
+        setTimeout(() => {
+            navigate('/');
+            setSubmitting(false);
+        }, 1500);
     };
 
     return (
@@ -92,10 +94,10 @@ const Checkout = () => {
                             <MDBCol md="10">
                                 <div className="d-flex justify-content-between align-items-center mb-4">
                                     <MDBTypography tag="h3" className="fw-normal mb-0 text-black">
-                                        Shopping Cart
+                                        Thông tin giỏ hàng
                                     </MDBTypography>
                                 </div>
-                                <MDBCard className="rounded-3 mb-4">
+                                <MDBCard className="rounded-3 mb-4 hide-768px">
                                     <MDBRow className="justify-content-between align-items-center">
                                         <MDBCol md="2" lg="2" xl="2">
                                             <p className="lead fw-normal mb-2"></p>
@@ -128,15 +130,15 @@ const Checkout = () => {
                                                 <MDBCol md="3" lg="3" xl="2"
                                                         className="d-flex align-items-center justify-content-around">
                                                     <MDBBtn color="link" className="px-2"
-                                                            onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>
+                                                            onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.name)}>
                                                         <FaMinus />
                                                     </MDBBtn>
 
                                                     <MDBInput min={0} value={item.quantity} type="number" size="sm"
-                                                              onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}/>
+                                                              onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value), item.name)}/>
 
                                                     <MDBBtn color="link" className="px-2"
-                                                            onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>
+                                                            onClick={() => handleQuantityChange(item.id, item.quantity + 1, item.name)}>
                                                         <FaPlus/>
                                                     </MDBBtn>
                                                 </MDBCol>
@@ -157,10 +159,10 @@ const Checkout = () => {
                                 <MDBCard>
                                     <MDBCardBody>
                                         <MDBTypography tag="h5" className="mb-0">
-                                            Total: {formatPrice(totalPrice)} VNĐ
+                                            Tồng tiền: {formatPrice(totalPrice)} VNĐ
                                         </MDBTypography>
                                         <MDBBtn className="ms-3" color="warning" block size="lg">
-                                            Checkout
+                                            Thanh toán
                                         </MDBBtn>
                                     </MDBCardBody>
                                 </MDBCard>
@@ -169,7 +171,7 @@ const Checkout = () => {
                     </MDBContainer>
                 </section>
                 <div className="contact-form-container">
-                    <h3>Shipping Details</h3>
+                    <h3>Thông tin khách hàng</h3>
                     <p className="form-description">
                         Vui lòng điền đầy đủ thông tin theo yêu cầu để chúng tôi có thể hỗ trợ quý khách tốt nhất.
                     </p>

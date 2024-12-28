@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./topnews.css";
+import "./Topnews.css";
 import {handleGetDataHomePage} from "../../service/drinks";
 
 const TopNews = () => {

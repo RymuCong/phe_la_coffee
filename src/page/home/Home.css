@@ -29,8 +29,8 @@
 }
 
 .bestseller-card {
-    width: 28%; /* Điều chỉnh kích thước */
-    margin: 1.5%; /* Điều chỉnh khoảng cách */
+    width: 28%;
+    margin: 1.5%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     text-align: center;
     border-radius: 10px;
@@ -40,47 +40,47 @@
 
 .bestseller-card img {
     width: 100%;
-    height: 250px; /* Điều chỉnh chiều cao */
+    height: 250px;
     object-fit: cover;
 }
 
 .bestseller-card-content {
-    padding: 15px; /* Điều chỉnh khoảng cách */
+    padding: 15px;
 }
 
 .bestseller-card-content h3 {
     text-align: left;
-    margin: 5px 0; /* Giảm khoảng cách */
-    font-size: 1em; /* Điều chỉnh kích thước chữ */
-    font-weight: normal; /* Điều chỉnh độ đậm */
-    color: #333; /* Màu chữ */
+    margin: 5px 0;
+    font-size: 1em;
+    font-weight: normal;
+    color: #333;
 }
 
 .bestseller-card-content p {
     text-align: left;
-    margin: 5px 0; /* Giảm khoảng cách */
-    font-size: 1em; /* Điều chỉnh kích thước chữ */
-    color: #b85c38; /* Màu chữ cho giá */
-    font-weight: bold; /* Đậm chữ cho giá */
+    margin: 5px 0;
+    font-size: 1em;
+    color: #b85c38;
+    font-weight: bold;
 }
 
 .bestseller-button {
-    background-color: #d3b8ae; /* Adjust color */
+    background-color: #d3b8ae;
     color: #fff;
     border: none;
-    padding: 10px 20px; /* Adjust button size */
+    padding: 10px 20px;
     margin: 10px 0;
     cursor: pointer;
-    position: relative !important; /* Remove absolute positioning */
-    left: 0 !important; /* Reset left positioning */
-    opacity: 1 !important; /* Ensure button is visible */
-    visibility: visible !important; /* Ensure button is visible */
-    transition: background-color 0.75s; /* Adjust transition */
+    position: relative !important;
+    left: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: background-color 0.75s;
     float: left;
 }
 
 .bestseller-button:hover {
-    background-color: #b89c8b; /* Adjust hover color */
+    background-color: #b89c8b;
 }
 
 .home-page h2 {
@@ -93,4 +93,22 @@
     font-size: 30px;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .bestseller-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .bestseller-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .bestseller-card img {
+        height: 200px;
+    }
 }

@@ -157,7 +157,25 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .contact-form-container {
+    .contact-us {
+        padding: 10px;
+    }
+
+    .contact-us .form-info h2 {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    .contact-us .text {
+        padding-left: 50px;
+    }
+
+    .contact-us .contact-form-container {
         padding: 20px;
+    }
+
+    .contact-us .icon {
+        width: 40px;
+        height: 40px;
     }
 }

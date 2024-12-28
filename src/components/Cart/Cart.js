@@ -17,7 +17,7 @@ const Cart = () => {
         let hasInvalidQuantity = false;
         cart.forEach(item => {
             if (item.quantity > 10) {
-                toast.error(`Max quantity for ${item.name} is 10`, {
+                toast.error(`Số lượng tối đa cho ${item.name} là 10`, {
                     position: "top-right",
                     autoClose: 3000,
                     hideProgressBar: false,
@@ -88,7 +88,7 @@ const Cart = () => {
                         onClick={handleCheckout}
                         disabled={isCheckoutDisabled}
                     >
-                        Checkout
+                        Thanh toán
                     </Button>
                 </>
             )}

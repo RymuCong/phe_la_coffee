@@ -53,7 +53,7 @@ export default function ProductModal(props) {
         ...prevQuantities,
         [props.prdDetail.id]: 0
       }));
-      toast.success('Product added to cart successfully', {
+      toast.success('Thêm sản phẩm thành công!', {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,

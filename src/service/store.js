@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
+// Viết hàm cleanPrice để chuyển đổi giá từ string sang number (54.000₫ -> 54000)
 const cleanPrice = (price) => {
     return parseFloat(price.replace(/\./g, '').replace('₫', ''));
 };
@@ -33,6 +34,10 @@ const useStore = create((set, get) => ({
         const updatedCart = state.cart.map(item => item.id === id ? { ...item, quantity: Math.max(0, quantity) } : item);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
         return { cart: updatedCart };
+    }),
+    clearCart: () => set(() => {
+        localStorage.removeItem('cart');
+        return { cart: [] };
     }),
 }));
 
