@@ -3,10 +3,13 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import {toast, ToastContainer} from "react-toastify";
+
 const ContactUs = () => {
     return (
         <div>
             <Header/>
+            <ToastContainer />
             <div className="contact-us">
                 <Info/>
                 <ContactForm/>
@@ -18,73 +21,42 @@ const ContactUs = () => {
 
 const Info = () => (
     <div className="info">
-
         <div className="form-info">
-
             <h2>Phê La &#8211; Nốt Hương Đặc Sản</h2>
-
             <div className="item">
-
                 <div className="icon">
-
                     <img src="https://phela.vn/wp-content/themes/florist/assets/img/75.png"
                          alt=""/>
-
                 </div>
-
                 <div className="text">
-
                     <p><strong>Địa chỉ:</strong></p>
-
                     <p>Trụ sở chính: 289 Đinh Bộ Lĩnh, Phường 26, Quận Bình Thạnh, Thành phố Hồ Chí Minh</p>
                     <p>Chi nhánh Đà Lạt: 7 Nguyễn Chí Thanh, phường 1, Thành phố Đà Lạt, tỉnh Lâm Đồng</p><p>Chi
                     nhánh Hà Nội: Lô 04-9A Khu công nghiệp Vĩnh Hoàng, phường Hoàng Văn Thụ, quận Hoàng Mai, Hà
                     Nội</p>
-
                 </div>
-
             </div>
-
             <div className="item">
-
                 <div className="icon">
-
                     <img src="https://phela.vn/wp-content/themes/florist/assets/img/76.png"
                          alt=""/>
-
                 </div>
-
                 <div className="text">
-
                     <p><strong>Hotline:</strong></p>
-
                     <p>1900 3013</p>
-
                 </div>
-
             </div>
-
             <div className="item">
-
                 <div className="icon">
-
                     <img src="https://phela.vn/wp-content/themes/florist/assets/img/77.png"
                          alt=""/>
-
                 </div>
-
                 <div className="text">
-
                     <p><strong>Email:</strong></p>
-
                     <p>info@phela.vn</p>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
 )
 
@@ -104,10 +76,20 @@ const ContactForm = () => {
         content: Yup.string().required('Vui lòng nhập nội dung')
     });
 
-    const handleSubmit = (values, {setSubmitting}) => {
-        console.log(values);
+    const handleSubmit = (values, { setSubmitting, resetForm }) => {
         setSubmitting(false);
+        resetForm();
+        toast.info('Shop Phê La cảm ơn vì nội dung phản hồi của bạn!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     };
+
 
     return (
         <div className="contact-form-container">
@@ -166,6 +148,5 @@ const ContactForm = () => {
         </div>
     );
 };
-
 
 export default ContactUs;
