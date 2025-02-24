@@ -5,6 +5,28 @@ import "slick-carousel/slick/slick-theme.css";
 import './Address.css';
 
 const Address = () => {
+    const getResponsiveSettings = () => {
+        return [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false
+                }
+            }
+        ];
+    };
+
     const settings = {
         dots: true,
         infinite: true,
@@ -12,7 +34,9 @@ const Address = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 2000,
+        pauseOnHover: true,
+        responsive: getResponsiveSettings()
     };
 
     const addresses = [
@@ -45,9 +69,11 @@ const Address = () => {
             <h2>HỆ THỐNG CỬA HÀNG</h2>
             <Slider {...settings}>
                 {addresses.map((address, index) => (
-                    <div key={index} className={`address ${address.className}`}>
-                        <h3>{address.label}</h3>
-                        <p>{address.phone}</p>
+                    <div key={index}>
+                        <div className={address.className}>
+                            <h3>{address.label}</h3>
+                            <p>{address.phone}</p>
+                        </div>
                     </div>
                 ))}
             </Slider>

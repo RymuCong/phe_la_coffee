@@ -223,6 +223,25 @@ const Timeline = ({ timelineData}) => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 5000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false
+                }
+            }
+        ]
     };
 
     return (

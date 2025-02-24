@@ -8,7 +8,8 @@
     padding-top: 50px;
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.99);
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .addressContainer h2 {
@@ -122,4 +123,47 @@
 
 .address22 {
     background-image: url(https://phela.vn/wp-content/uploads/2021/07/186503387_161194879286573_4841292706754004551_n-2048x779.jpg);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .addressContainer {
+        width: 95%;
+    }
+
+    .address1, .address2, .address3, .address4, .address5, .address6, .address7, .address8, .address9, .address10, .address11, .address12, .address13, .address14, .address15, .address16, .address17, .address18, .address19, .address20, .address21, .address22 {
+        height: 200px;
+        margin: 10px;
+    }
+
+    .addressContainer h3 {
+        font-size: 16px;
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .addressContainer {
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .address1, .address2, .address3, .address4, .address5, .address6, .address7, .address8, .address9, .address10, .address11, .address12, .address13, .address14, .address15, .address16, .address17, .address18, .address19, .address20, .address21, .address22 {
+        height: 180px;
+        margin: 5px;
+        border-width: 5px;
+    }
+
+    .addressContainer h2 {
+        font-size: 20px;
+    }
+
+    .addressContainer h3 {
+        font-size: 14px;
+        padding-top: 80px;
+    }
+
+    .addressContainer p {
+        font-size: 12px;
+    }
 }
