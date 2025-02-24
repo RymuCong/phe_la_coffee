@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/phe_la_coffee/static/css/main.cabc8967.css",
-    "main.js": "/phe_la_coffee/static/js/main.4b56a7d4.js",
+    "main.css": "/phe_la_coffee/static/css/main.21e85965.css",
+    "main.js": "/phe_la_coffee/static/js/main.9060e2a9.js",
     "static/js/453.aeb52187.chunk.js": "/phe_la_coffee/static/js/453.aeb52187.chunk.js",
     "static/media/K2D-SemiBold.ttf": "/phe_la_coffee/static/media/K2D-SemiBold.dc308fc8004620bff306.ttf",
     "static/media/K2D-Light.ttf": "/phe_la_coffee/static/media/K2D-Light.d99efc15688f1259e192.ttf",
@@ -10,12 +10,12 @@
     "static/media/slick.ttf": "/phe_la_coffee/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/phe_la_coffee/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/phe_la_coffee/index.html",
-    "main.cabc8967.css.map": "/phe_la_coffee/static/css/main.cabc8967.css.map",
-    "main.4b56a7d4.js.map": "/phe_la_coffee/static/js/main.4b56a7d4.js.map",
+    "main.21e85965.css.map": "/phe_la_coffee/static/css/main.21e85965.css.map",
+    "main.9060e2a9.js.map": "/phe_la_coffee/static/js/main.9060e2a9.js.map",
     "453.aeb52187.chunk.js.map": "/phe_la_coffee/static/js/453.aeb52187.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cabc8967.css",
-    "static/js/main.4b56a7d4.js"
+    "static/css/main.21e85965.css",
+    "static/js/main.9060e2a9.js"
   ]
 }
