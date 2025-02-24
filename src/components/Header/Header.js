@@ -4,6 +4,7 @@ import "./Header.css";
 import { NavLink, useNavigate } from 'react-router-dom';
 import Cart from "../Cart/Cart";
 import useStore from '../../service/store';
+import {FaShoppingCart} from "react-icons/fa";
 
 const Header = () => {
     const [showCart, setShowCart] = useState(false);
@@ -39,7 +40,7 @@ const Header = () => {
                 onMouseLeave={() => setShowCart(false)}
             >
                 <p className='header--icon'>
-                    <img width={70} height={50} src="https://cdn.icon-icons.com/icons2/1182/PNG/96/1490129392-rounded28_82189.png" alt=""/>
+                    <FaShoppingCart size={24} color="white" />
                     {totalQuantity > 0 && <span className='header--count'>{totalQuantity}</span>}
                 </p>
                 {showCart && (

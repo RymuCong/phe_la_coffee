@@ -60,6 +60,17 @@
 
 .header--icon {
     position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header--icon svg {
+    transition: color 0.3s ease;
+}
+
+.header--icon:hover svg {
+    color: rgb(243, 210, 161);
 }
 
 .header a {
@@ -93,12 +104,27 @@
     color: white;
     font-size: 24px;
     cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.menu-button:hover {
+    color: rgb(243, 210, 161);
 }
 
 @media (max-width: 768px) {
     .header {
+        position: relative;
         justify-content: space-between;
-        align-items: center;
+    }
+
+    .menu-button {
+        display: block;
+        order: -1; /* Move to the start */
+    }
+
+    .header__logo {
+        margin: 0 auto; /* Center the logo */
     }
 
     .header__nav {
@@ -107,26 +133,26 @@
         width: 100%;
         background-color: rgb(0, 0, 0);
         position: absolute;
-        top: 60px;
+        top: 100%;
         left: 0;
         padding: 10px 0;
+        z-index: 1000;
     }
 
     .header__nav.show {
-        display: flex;
-    }
-
-    .header__logo {
         display: block;
-        margin: 0 auto;
     }
 
-    .header__user {
-        order: 2;
+    .header__nav p {
+        padding: 10px 20px;
+        margin: 0;
     }
 
-    .menu-button {
-        display: block;
-        order: 1;
+    .header--count {
+        top: -6px;
+        right: -6px;
+        min-width: 18px;
+        min-height: 18px;
+        font-size: 11px;
     }
 }
